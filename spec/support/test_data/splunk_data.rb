@@ -13,8 +13,8 @@ module Whowas
       { 
         query: "search 192.168.1.1 5000",
         args: {
-          earliest_time: "2015-10-09T19:55:00.000-0400",
-          latest_time: "2015-10-09T20:00:00.100-0400"
+          earliest_time: Time.parse("2015-10-09T23:55:00+0000").localtime.strftime("%Y-%m-%dT%H:%M:%S.%L%z"),
+          latest_time: Time.parse("2015-10-10T00:00:00.100+0000").localtime.strftime("%Y-%m-%dT%H:%M:%S.%L%z")
         }
       }      
     end
@@ -31,8 +31,8 @@ module Whowas
       { 
         query: "search 192.168.1.2 5000",
         args: {
-          earliest_time: "2015-10-09T19:55:00.000-0400",
-          latest_time: "2015-10-09T20:00:00.100-0400"
+          earliest_time: Time.parse("2015-10-09T23:55:00+0000").localtime.strftime("%Y-%m-%dT%H:%M:%S.%L%z"),
+          latest_time: Time.parse("2015-10-10T00:00:00.100+0000").localtime.strftime("%Y-%m-%dT%H:%M:%S.%L%z")
         }
       }      
     end
