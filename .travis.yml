@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.2.2
+install:
+- travis_retry bundle install
+sudo: false
+cache: bundler
+
+addons:
+  code_climate:
+    repo_token: 43fafe04d92a7978e0a2ca0dd152287e0c8a19d6a24e49fd51a30c51e9c6b9ed
+
+script:
+- bundle exec rspec spec
