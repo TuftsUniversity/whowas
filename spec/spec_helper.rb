@@ -1,7 +1,10 @@
+require "codeclimate-test-reporter"
 require "simplecov"
 SimpleCov.start do
   nocov_token 'nocov'
 end
+
+CodeClimate::TestReporter.start
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'whowas'
