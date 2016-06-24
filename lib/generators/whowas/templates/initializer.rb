@@ -8,11 +8,11 @@ Whowas.configuration do |config|
   # An example of a full recipe table:
   #
   # config.recipe_table = {
-  #   "192.168.1.0/24": MyRecipes.home_wireless,
-  #   "10.0.0.0/8": MyRecipes.internal_wired,
-  #   ip_default: MyRecipes.other_ips,
-  #   mac_default: MyRecipes.search_by_mac,
-  #   default: MyRecipes.other_ips
+  #   "192.168.1.0/24": Whowas.home_wireless,
+  #   "10.0.0.0/8": Whowas.internal_wired,
+  #   ip_default: Whowas.other_ips,
+  #   mac_default: Whowas.search_by_mac,
+  #   default: Whowas.other_ips
   # }
   config.recipe_table = {}
   
