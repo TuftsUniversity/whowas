@@ -37,12 +37,13 @@ module Whowas
   # for more documentation.
   
   define_setting :recipe_table, {}
+  define_setting :recipe_class, Whowas::Recipes
   
   # configuration defaults
   define_setting :splunk_config, nil  
   
   def self.search(input)
-    recipe = Recipes.select(input) || Whowas.recipe_table[:default]
+    recipe = recipe_class.select(input) || Whowas.recipe_table[:default]
     env = {input: input, results: []}
     recipe.call(env)
     env

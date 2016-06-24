@@ -16,6 +16,11 @@ Whowas.configuration do |config|
   # }
   config.recipe_table = {}
   
+  ## Recipes class
+  # You can change this to a custom defined class if you need to extend the
+  # recipe selection algorithm beyond IP and mac addresses.
+  config.recipe_class = Whowas::Recipes
+  
   ## API configuration and credentials
   # If you are not using a bundled API, you can safely ignore this section.
 
