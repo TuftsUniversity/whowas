@@ -3,16 +3,16 @@ Whowas.configuration do |config|
   ## Recipe Table
   # You MUST define your default recipe and any other recipes you may use
   # here.  Viable keys include "default", "ip_default", "mac_default", and
-  # valid IP addresses or CIDR blocks.
+  # valid IP addresses or CIDR blocks.  Recipes are messages sent to Whowas.
   #
   # An example of a full recipe table:
   #
   # config.recipe_table = {
-  #   "192.168.1.0/24": Whowas.home_wireless,
-  #   "10.0.0.0/8": Whowas.internal_wired,
-  #   ip_default: Whowas.other_ips,
-  #   mac_default: Whowas.search_by_mac,
-  #   default: Whowas.other_ips
+  #   "192.168.1.0/24": "home_wireless",
+  #   "10.0.0.0/8": "internal_wired",
+  #   ip_default: "other_ips",
+  #   mac_default: "search_by_mac",
+  #   default: "other_ips"
   # }
   config.recipe_table = {}
   

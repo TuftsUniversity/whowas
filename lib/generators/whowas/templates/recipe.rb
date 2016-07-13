@@ -5,7 +5,7 @@ module Whowas
     # All you have to do is specify the search method classes in the order
     # they should be called.  The output for each search method should match
     # the input of the next.
-    Middleware::Builder.new do
+    ::Middleware::Builder.new do
       # use MySearchMethod1
       # use MySearchMethod2
       # use MySearchMethod3
