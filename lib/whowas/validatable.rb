@@ -1,7 +1,7 @@
 module Whowas
   module Validatable 
     # Checks for required inputs and input formats
-    # that the API will need to process the search.
+    # that the adapter will need to process the search.
     #
     # It does *not* matter if there are other, non-required parameters
     # in the input hash; they will be ignored later.
@@ -32,7 +32,8 @@ module Whowas
       end
     end
     
-    # Format is a lambda defined in the api class which returns true or false.
+    # Format is a lambda defined in the search method class which returns 
+    # true or false.
     # This allows for flexible format checking:
     #    e.g. regex for ip addresses and DateTime.parse calls for timestamps
     def check_format(formats, input)

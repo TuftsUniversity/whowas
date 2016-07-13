@@ -22,7 +22,7 @@ Whowas.configuration do |config|
   config.recipe_class = Whowas::Recipes
   
   ## API configuration and credentials
-  # If you are not using a bundled API, you can safely ignore this section.
+  # If you are not using a bundled adapter, you can safely ignore this section.
 
   # Splunk API configuration
   # The recommended method is to store your Splunk credentials in environment

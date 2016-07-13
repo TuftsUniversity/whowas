@@ -1,10 +1,10 @@
 module Whowas
   module Searchable    
-    @@api = nil
+    @@adapter = nil
     
-    # The including class *must* set the api class in a class constant.
-    def api
-      @@api || (raise Errors::SubclassResponsibility)
+    # The including class *must* set the adapter class in a class constant.
+    def adapter
+      @@adapter || (raise Errors::SubclassResponsibility)
     end
 
     # extend the including class with the searchable sub-modules
@@ -19,7 +19,7 @@ module Whowas
     def search(input)
       validate(input)
       input = format(input)
-      result = api.new.search(input)
+      result = adapter.new.search(input)
       parse(result)
     end
   end

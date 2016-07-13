@@ -1,15 +1,15 @@
-require "support/fake_api"
+require "support/fake_adapter"
 
 module Whowas
   module Support
     class FakeSearchMethod
       include Searchable
       
-      @@api = Whowas::Support::FakeApi
+      @@adapter = Whowas::Support::FakeAdapter
       
       private
       
-      # the fake API class needs a query string, a timestamp, and an offset
+      # the fake adapter class needs a query string, a timestamp, and an offset
       # for the timestamp in seconds to create a time range to search
       def format_input(input)
         input[:query]  = "search #{input[:ip]} #{input[:port]}"

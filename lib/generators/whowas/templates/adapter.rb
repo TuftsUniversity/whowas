@@ -1,17 +1,18 @@
 module Whowas
-  class MyApi
-    # Whowas::Api provides the public interface to your API, accessed through the
-    # "search" instance method.
-    include Whowas::Api
+  class MyAdapter
+    # Whowas::Adapter provides the public interface to your adapter, accessed 
+    # through the "search" instance method.
+    include Whowas::Adapter
   
-    # All custom API code is defined in the private methods below.  Naturally,
-    # you can add private methods as needed for connecting to the API, etc. 
+    # All custom adapter code is defined in the private methods below.  
+    # Naturally, you can add private methods as needed for connecting to the 
+    # adapter, etc. 
     private
     
     ## Required
     
-    # Sends a search query with provided input to your API and returns results 
-    # as a string.
+    # Sends a search query with provided input to your third-party API and 
+    # returns results as a string.
     def search_api(input)
       ""
     end
@@ -27,7 +28,7 @@ module Whowas
     end
     
     # Transforms input one last time before API call.
-    # Will be called on input for all search_methods using this API.
+    # Will be called on input for all search_methods using this adapter.
     # For search_method-specific transformations, use the format_input method
     # in your search_method.
     def format(input)

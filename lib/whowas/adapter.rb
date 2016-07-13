@@ -1,6 +1,6 @@
 module Whowas
-  module Api
-    # All APIs use (api_instance).search as the only public method
+  module Adapter
+    # All adapters use (adapter_instance).search as the only public method
     # and follow the pattern below.
     # Validation and formatting are optional.
     # search_api must contain the core api search code and return the results.
@@ -12,7 +12,7 @@ module Whowas
   
     private
   
-    # default methods for APIs to use or override
+    # default methods for adapters to use or override
     #:nocov:
     def validate(input)
       true

@@ -22,7 +22,7 @@ describe Whowas, type: :main do
   
   describe ".search" do
     before do
-      setup_fake_api_class
+      setup_fake_adapter_class
       Whowas::Support::FakeSearchMethod.send(:include, Whowas::Middleware)
       Whowas.configuration do |config|
         config.recipe_table = {

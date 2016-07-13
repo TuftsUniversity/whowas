@@ -1,6 +1,6 @@
 require "middleware"
 
-require "whowas/api"
+require "whowas/adapter"
 require "whowas/configuration"
 require "whowas/errors"
 require "whowas/formattable"
@@ -11,8 +11,8 @@ require "whowas/searchable"
 require "whowas/validatable"
 require "whowas/version"
 
-# bundled apis
-require "apis/splunk"
+# bundled adapters
+require "adapters/splunk"
 
 
 module Whowas

@@ -5,7 +5,7 @@ module Whowas
     let(:dummy_class) { Support::FakeSearchMethod }
     
     describe "#validate" do
-      context "when given input that meets the requirements of the API" do
+      context "when given input that meets the requirements of the adapter" do
         it "returns true" do
           expect(dummy_class.new.validate(valid_input_results)).to be true
         end

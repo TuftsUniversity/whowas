@@ -2,7 +2,7 @@ require "splunk-sdk-ruby"
 
 module Whowas
   class Splunk
-    include Whowas::Api
+    include Whowas::Adapter
     
     @@connection = nil
     
@@ -13,7 +13,7 @@ module Whowas
     def self.connection(config: Whowas.splunk_config)
       @@connection ||= ::Splunk::connect(config)
     rescue => e
-      raise Whowas::Errors::ServiceUnavailable, e
+      raise Whowas::Errors::ServiceUnavailable, "#{self.class.name}: #{e}"
     end
         
     def validate(input)
@@ -22,7 +22,7 @@ module Whowas
       input[:offset].is_a?(Integer) &&
       DateTime.parse(input[:timestamp]) &&
       true) ||
-      (raise Whowas::Errors::InvalidInput, "Invalid input for Splunk API")
+      (raise Whowas::Errors::InvalidInput, "Invalid input for Splunk")
     end
     
     def format(input)

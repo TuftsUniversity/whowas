@@ -3,7 +3,7 @@ require "spec_helper"
 module Whowas
   describe Searchable, type: :searchable do
     before do
-      setup_fake_api_class
+      setup_fake_adapter_class
     end
     
     describe "#search" do
