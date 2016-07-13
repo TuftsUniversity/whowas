@@ -3,11 +3,11 @@ module Whowas
     source_root File.expand_path("../templates", __FILE__)
     
     def create
-      copy_file "recipe.rb", "app/recipes/#{file_name}.rb"
+      copy_file "recipe.rb", "app/whowas/recipes/#{file_name}.rb"
     end
     
     def rename_method
-      gsub_file "app/recipes/#{file_name}.rb", /name_this_recipe/, name.underscore
+      gsub_file "app/whowas/recipes/#{file_name}.rb", /name_this_recipe/, name.underscore
     end
   end
 end
