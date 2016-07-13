@@ -1,5 +1,20 @@
 require 'spec_helper'
 
+module Whowas
+  def self.fake_recipe_1
+    ::Middleware::Builder.new do
+     use Whowas::Support::FakeSearchMethod.new
+     use Whowas::Support::FakeSearchMethod.new
+    end
+  end
+  
+  def self.fake_recipe_2
+    ::Middleware::Builder.new do
+     use Whowas::Support::FakeSearchMethod.new
+    end    
+  end
+end
+
 describe Whowas, type: :main do
   it 'has a version number' do
     expect(Whowas::VERSION).not_to be nil
@@ -14,13 +29,8 @@ describe Whowas, type: :main do
           # using the middleware twice causes it to succeed on the first call
           # and error on the second due to invalid input
           # (FakeSearchMethod takes an IP but produces a MAC)
-          "192.168.1.3": (::Middleware::Builder.new do
-                           use Whowas::Support::FakeSearchMethod.new
-                           use Whowas::Support::FakeSearchMethod.new
-                         end),
-          "default": (::Middleware::Builder.new do
-                         use Whowas::Support::FakeSearchMethod.new
-                        end)
+          "192.168.1.3": "fake_recipe_1",
+          "default": "fake_recipe_2"
         }
       end
     end

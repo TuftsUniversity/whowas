@@ -45,7 +45,7 @@ module Whowas
   def self.search(input)
     recipe = recipe_class.select(input) || Whowas.recipe_table[:default]
     env = {input: input, results: []}
-    recipe.call(env)
+    self.send(recipe).call(env)
     env
   end
   
