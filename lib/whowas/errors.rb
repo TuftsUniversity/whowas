@@ -5,6 +5,10 @@ module Whowas
   end
   
   module Errors
+    # Will be thrown when Whowas is not configured or configured improperly.
+    class ConfigurationError < Whowas::Error
+    end
+    
     # Will be thrown when input is invalid.
     class InvalidInput < Whowas::Error
     end

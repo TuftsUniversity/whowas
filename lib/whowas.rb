@@ -40,16 +40,15 @@ module Whowas
   define_setting :recipe_class, Whowas::Recipes
   
   # configuration defaults
-  define_setting :splunk_config, nil  
+  define_setting :splunk_config, nil
   
   def self.search(input)
+    validate_configuration
     recipe = recipe_class.select(input) || Whowas.recipe_table[:default]
     env = {input: input, results: []}
     self.send(recipe).call(env)
     env
   end
-  
-  private
   
   # Uses the recipe_table hash to match up the input to the correct recipe type.
   # If there is an IP address in the input, it tries to match the IP address
@@ -58,5 +57,14 @@ module Whowas
   # Otherwise, it falls back to :default.
   def select_recipe(input)
   end
-    
+  
+  # Ensure that the user has configured the recipe table and initialized the whowas
+  # directory in the overarching app.
+  # Does not prove the app is properly configured -- this is the bare minimum, meant to
+  # be an alert for users who don't realize they have to configure anything at all.
+  def self.validate_configuration
+    if recipe_table == {} || !recipe_table.include?(:default)
+      raise Whowas::Errors::ConfigurationError, "Please configure Whowas as described at https://github.com/TuftsUniversity/whowas"
+    end
+  end 
 end
