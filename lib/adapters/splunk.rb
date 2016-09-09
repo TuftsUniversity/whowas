@@ -11,8 +11,12 @@ module Whowas
     # Whowas.splunk_config is configured via define_setting in the initializer.
     # See configuration.rb for more information.
     def self.connection(config: Whowas.splunk_config)
-      @@connection ||= ::Splunk::connect(config)
-    rescue => e
+      if @@connection && @@connection.token
+        @@connection = ::Splunk::Service.new(config.merge(token: @@connection.token))
+      else
+        @@connection = ::Splunk::connect(config)
+      end
+    rescue StandardError => e
       raise Whowas::Errors::ServiceUnavailable, "#{self.class.name}: #{e}"
     end
         
@@ -47,6 +51,6 @@ module Whowas
       else
         ""
       end
-    end
+    end    
   end
 end
