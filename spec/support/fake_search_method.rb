@@ -5,7 +5,7 @@ module Whowas
     class FakeSearchMethod
       include Searchable
       
-      @@adapter = Whowas::Support::FakeAdapter
+      ADAPTER = Whowas::Support::FakeAdapter
       
       private
       
